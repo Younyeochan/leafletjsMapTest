@@ -30,6 +30,11 @@
   // var map = L.map('map').setView([37.501173, 126.759909], 13);
   var map = L.map('map').setView([37.500347, 126.760072], 15);
 
+  var taxiIcon = L.icon({
+    iconUrl: 'img/taxi.png',
+    iconSize: [20, 20]
+  })
+
   // OSM Layer
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: 'OSM'})
 	.addTo(map);
@@ -62,6 +67,6 @@
   var line = L.polyline([[37.500321, 126.760572], [37.502296, 126.760969], [37.500452, 126.775025]]);
   map.addLayer(line);
 
-  var animatedMarker = L.animatedMarker(line.getLatLngs());
+  var animatedMarker = L.animatedMarker(line.getLatLngs(), { icon: taxiIcon });
   map.addLayer(animatedMarker);
 </script>
